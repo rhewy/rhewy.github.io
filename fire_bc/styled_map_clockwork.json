@@ -1,0 +1,219 @@
+{
+    "version": 8,
+    "name": "libre vite",
+    "sources": {
+        "veg_fire": {
+            "type": "vector",
+            "tiles": [
+                "https://maptools.clockworkmicro.com/v1/64f8dd6a-e994-45be-8284-e6dfa84e26d8/tilesource/32670cb7-045c-45ed-a21e-fd42a74f3446/{z}/{x}/{y}.mvt?x-api-key=KEY"
+            ]
+        },
+        "fire_bnd_bc": {
+            "type": "vector",
+            "tiles": [
+                "https://maptools.clockworkmicro.com/v1/64f8dd6a-e994-45be-8284-e6dfa84e26d8/tilesource/afc51a16-e5b0-4411-b688-6784e36a81cd/{z}/{x}/{y}.mvt?x-api-key=KEY"
+            ]
+        },
+        "oms_base": {
+            "type": "raster",
+            "tiles": [
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+            ],
+            "tileSize": 256
+        }
+    },
+    "layers": [
+        {
+            "id": "lyr_oms_base",
+            "type": "raster",
+            "source": "oms_base",
+            "minzoom": 0,
+            "maxzoom": 22
+        },
+        {
+            "id": "lyr_fire_bnd_bc",
+            "type": "line",
+            "source": "fire_bnd_bc",
+            "source-layer": "default",
+            "paint": {"line-width": 3.4285714285714284, "line-opacity": 1.0, "line-color": "#e41a1c"}
+        },
+        {
+            "id": "lyr_veg_fire",
+            "type": "fill",
+            "source": "veg_fire",
+            "source-layer": "default",
+            "paint": {
+                "fill-opacity": [
+                    "case",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "1"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "2"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "3"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "4"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "5"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "6"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "7"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "8"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "9"
+                    ],
+                    1.0,
+                    1.0
+                ],
+                "fill-color": [
+                    "case",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "1"
+                    ],
+                    "#b9ccfc",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "2"
+                    ],
+                    "#e8f6e3",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "3"
+                    ],
+                    "#d0ecc9",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "4"
+                    ],
+                    "#b2e0ab",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "5"
+                    ],
+                    "#8ed08c",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "6"
+                    ],
+                    "#66bd6f",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "7"
+                    ],
+                    "#3da75a",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "8"
+                    ],
+                    "#248c45",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "9"
+                    ],
+                    "#03702e",
+                    "#dddddd"
+                ]
+            }
+        }
+    ]
+}

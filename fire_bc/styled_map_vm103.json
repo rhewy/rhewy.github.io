@@ -1,0 +1,219 @@
+{
+    "version": 8,
+    "name": "libre vite",
+    "sources": {
+        "veg_fire": {
+            "type": "vector",
+            "tiles": [
+                "http://vm103.athena.bcit.ca:7800/public.veg_fire/{z}/{x}/{y}.pbf"
+            ]
+        },
+        "fire_bnd_bc": {
+            "type": "vector",
+            "tiles": [
+                "http://vm103.athena.bcit.ca:7800/public.fire_bnd_bc/{z}/{x}/{y}.pbf"
+            ]
+        },
+        "oms_base": {
+            "type": "raster",
+            "tiles": [
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+            ],
+            "tileSize": 256
+        }
+    },
+    "layers": [
+        {
+            "id": "lyr_oms_base",
+            "type": "raster",
+            "source": "oms_base",
+            "minzoom": 0,
+            "maxzoom": 22
+        },
+        {
+            "id": "lyr_veg_fire",
+            "type": "fill",
+            "source": "veg_fire",
+            "source-layer": "public.veg_fire",
+            "paint": {
+                "fill-opacity": [
+                    "case",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "1"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "2"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "3"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "4"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "5"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "6"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "7"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "8"
+                    ],
+                    1.0,
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "9"
+                    ],
+                    1.0,
+                    1.0
+                ],
+                "fill-color": [
+                    "case",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "1"
+                    ],
+                    "#b9ccfc",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "2"
+                    ],
+                    "#e8f6e3",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "3"
+                    ],
+                    "#d0ecc9",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "4"
+                    ],
+                    "#b2e0ab",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "5"
+                    ],
+                    "#8ed08c",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "6"
+                    ],
+                    "#66bd6f",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "7"
+                    ],
+                    "#3da75a",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "8"
+                    ],
+                    "#248c45",
+                    [
+                        "==",
+                        [
+                            "get",
+                            "proj_age_class_cd_1"
+                        ],
+                        "9"
+                    ],
+                    "#03702e",
+                    "#dddddd"
+                ]
+            }
+        },
+        {
+            "id": "lyr_fire_bnd_bc",
+            "type": "line",
+            "source": "fire_bnd_bc",
+            "source-layer": "public.fire_bnd_bc",
+            "paint": {"line-width": 3.4285714285714284, "line-opacity": 1.0, "line-color": "#e41a1c"}
+        }
+    ]
+}
